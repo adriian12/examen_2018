@@ -38,7 +38,6 @@ public class Wallet {
         this.setAddress(pair.getPublic());
 	}
 	
-
 	public void loadCoins(BlockChain bChain) {
 		
 		
