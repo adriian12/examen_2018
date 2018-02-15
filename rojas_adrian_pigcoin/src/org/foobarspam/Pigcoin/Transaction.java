@@ -7,146 +7,55 @@ import java.security.PublicKey;
  */
 
 public class Transaction {
-	private int hash = 0;
-	private int prev_hash = 0;
-	private PublicKey[] pKey_sender; 
-	private PublicKey[] pKey_recipient;
+
+	//attributes
+	private String hash = "";
+	private String prev_hash = "";
+	private PublicKey pKey_sender = null;
+	private PublicKey pKey_recipient = null;
 	private int pigcoins = 0;
 	private String message = "";
-//	private byte[] signature = new byte[(int) message.length()];
 	
 	
-	public Transaction(int prev_hash, PublicKey[] pKey_sender, PublicKey[] pKey_recipient, int pigcoins, String message) {
-		this.setHash(hash);
+	//constructor
+	public Transaction() {
+		
+	}
+	//constructor de transacction para poder ser utilizado
+	public Transaction(String hash, String prev_hash, PublicKey pKey_sender, PublicKey pKey_recipient, int pigcoins, String message) {
+		this.hash = hash;
 		this.prev_hash = prev_hash;
 		this.pKey_sender = pKey_sender;
 		this.pKey_recipient = pKey_recipient;
-		this.pigcoins = pigcoins;
+		this.pigcoins += pigcoins;
 		this.message = message;
 	}
-
-
-	public int getPrev_hash() {
-		return prev_hash;
+	
+	//getters & setters
+	public String getHash() {
+		return this.hash;
 	}
-
-	public PublicKey[] getpKey_sender() {
-		return pKey_sender;
+	public String getPrevHash() {
+		return this.prev_hash;
 	}
-
-	public PublicKey[] getpKey_recipient() {
-		return pKey_recipient;
+	public PublicKey getpKeySender() {
+		return this.pKey_sender;
 	}
-
+	public PublicKey getpKeyRecipient() {
+		return this.pKey_recipient;
+	}
 	public int getPigcoins() {
-		return pigcoins;
+		return this.pigcoins;
 	}
-
 	public String getMessage() {
-		return message;
-	}
-
-	public int getHash() {
-		return hash;
-	}
-
-	public void setHash(int hash) {
-		this.hash = hash;
+		return this.message;
 	}
 	
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*private int id = 0;
-private String direccion = "";
-private int numeroAnclajes = 0;
-private Bicicleta[] anclajes;
-
-//constructor
-public Estacion(int id, String direccion, int numeroAnclaje) {
-	this.id = id;
-	this.direccion = direccion;
-	this.numeroAnclajes = numeroAnclaje;
-	this.anclajes =  new Bicicleta[numeroAnclajes];
-}
-*/
-
-
-/*public PrivateKey getPrivateKey(String filename) throws Exception {
-
-    File f = new File(filename);
-    FileInputStream fis = new FileInputStream(f);
-    DataInputStream dis = new DataInputStream(fis);
-    byte[] keyBytes = new byte[(int) f.length()];
-    dis.readFully(keyBytes);
-    dis.close();
-    PKCS8EncodedKeySpec spec = new PKCS8EncodedKeySpec(keyBytes);
-    KeyFactory kf =
-            KeyFactory.getInstance("RSA");
-    return kf.generatePrivate(spec);
-}
-
-
-
-public class PrivateKeyReader {
-
-	  public static PrivateKey get(String filename)
-	  throws Exception {
-
-	    byte[] keyBytes = Files.readAllBytes(Paths.get(filename));
-
-	    PKCS8EncodedKeySpec spec =
-	      new PKCS8EncodedKeySpec(keyBytes);
-	    KeyFactory kf = KeyFactory.getInstance("RSA");
-	    return kf.generatePrivate(spec);
-	  }
+	//metodo para coger el string
+	public String toString() {
+		String message = " hash: "+ getHash() + "\n prev_hash: " + getPrevHash() + "\n pKey_sender: " + getpKeySender().hashCode();
+		message +=  "\n pKey_recipient: " + getpKeyRecipient().hashCode() + "\n pigcoins: " +getPigcoins() + "\n message: " +getMessage() + "\n";
+		
+		return message;
 	}
-
-import java.io.*;
-import java.nio.*;
-import java.security.*;
-import java.security.spec.*;
-
-public class PublicKeyReader {
-
-  public static PublicKey get(String filename)
-    throws Exception {
-
-    byte[] keyBytes = Files.readAllBytes(Paths.get(filename));
-
-    X509EncodedKeySpec spec =
-      new X509EncodedKeySpec(keyBytes);
-    KeyFactory kf = KeyFactory.getInstance("RSA");
-    return kf.generatePublic(spec);
-  }
 }
-
-
-
-
-
-*/

@@ -3,7 +3,8 @@ package org.foobarspam.Pigcoin;
 import java.security.KeyPair;
 import java.util.Map;
 
-public class App {
+
+public class App{
 
     public static void main( String[] args )
     {
@@ -66,6 +67,7 @@ public class App {
         
         // Crea primero la direccion "origen" del sistema que genera los pigcoins
         Wallet origin = new Wallet();
+        
         origin.generateKeyPair();
 
         BlockChain bChain = new BlockChain();
@@ -87,7 +89,7 @@ public class App {
         System.out.println("\n" + "Ver Transaccion en posicion " + position.toString() + " del BlockChain" + "\n" + 
                                   "============================================"        );
 
-        bChain.summarize(position);        
+        bChain.summarize(position);
 
         /**
          * Indicar en la wallet
@@ -114,6 +116,7 @@ public class App {
         
         System.out.println("\n" + "Ver las transacciones ENTRANTES de la wallet_1" + "\n" + 
                                   "=============================================="        );
+        
         wallet_1.loadInputTransactions(bChain);
         System.out.println("Wallet = " + wallet_1.getAddress().hashCode());
         System.out.println("Transacciones = " + wallet_1.getInputTransactions().toString());
@@ -159,7 +162,6 @@ public class App {
         wallet_2.loadInputTransactions(bChain);
         wallet_2.loadOutputTransactions(bChain);
         System.out.println(wallet_2.toString());    
-
 
 
         /**
@@ -213,7 +215,7 @@ public class App {
          */
         
         String message = "he roto la hucha :(";
-        byte[] signedTransaction = wallet_1.signTransaction(message); // usa GenSig.sign()
+        //byte[] signedTransaction = wallet_1.signTransaction(message); // usa GenSig.sign()
         wallet_1.sendCoins(wallet_2.getAddress(), pigcoins, message, bChain); // usa wallet.collectCoins() y bChain.processTransactions()
         
         /**
@@ -249,6 +251,7 @@ public class App {
         System.out.println("\n" + "Ver el total de pigcoins de las dos wallet" + "\n" + 
                                   "=========================================="            );
         // comprobamos que la transaccion se ha realizado
+        
         wallet_1.loadCoins(bChain);
         wallet_1.loadInputTransactions(bChain);
         wallet_1.loadOutputTransactions(bChain);
@@ -294,5 +297,6 @@ public class App {
         wallet_2.loadInputTransactions(bChain);
         wallet_2.loadOutputTransactions(bChain);
         System.out.println(wallet_2.toString());
+    
     }
 }
