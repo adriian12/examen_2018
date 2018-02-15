@@ -1,4 +1,4 @@
-package org.foobarspam;
+package org.foobarspam.Test;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

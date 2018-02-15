@@ -1,4 +1,4 @@
-package org.foobarspam.pigcoin;
+package org.foobarspam.Pigcoin;
 
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;

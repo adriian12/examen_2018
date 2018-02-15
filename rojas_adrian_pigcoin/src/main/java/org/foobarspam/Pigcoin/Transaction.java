@@ -1,5 +1,10 @@
-package org.foobarspam.pigcoin;
+package org.foobarspam.Pigcoin;
 import java.security.PublicKey;
+
+/**
+ * @author Adrian
+ *
+ */
 
 public class Transaction {
 	private int hash = 0;
@@ -39,10 +44,6 @@ public class Transaction {
 
 	public String getMessage() {
 		return message;
-	}
-
-	public byte[] getSignature() {
-		return signature;
 	}
 
 	public int getHash() {

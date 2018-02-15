@@ -1,4 +1,9 @@
-package org.foobarspam.pigcoin;
+package org.foobarspam.Pigcoin;
+
+/**
+ * @author Adrian
+ *
+ */
 
 public class BlockChain {
 
